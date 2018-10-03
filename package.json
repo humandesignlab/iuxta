@@ -2,6 +2,10 @@
   "name": "iuxta",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.9.0",
+    "yarn": "1.7.0"
+  },
   "dependencies": {
     "apac": "^3.0.2",
     "prop-types": "^15.6.2",
