@@ -77,7 +77,9 @@ class StuffList extends React.Component {
                 );
               })
             ) : (
-              <div className="">No Data</div>
+              <Table.Row>
+                <Table.Cell>No Data</Table.Cell>
+              </Table.Row>
             )}
           </Table.Body>
         </Table>
