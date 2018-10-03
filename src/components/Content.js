@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Responsive, Container, Segment } from "semantic-ui-react";
-import TableList from "./List";
+import StuffList from "./StuffList";
 
 class Content extends Component {
   render() {
@@ -8,12 +8,12 @@ class Content extends Component {
       <div>
         <Responsive as={Container} minWidth={320} maxWidth={991}>
           <Segment>
-            <TableList />
+            <StuffList />
           </Segment>
         </Responsive>
         <Responsive as={Container} {...Responsive.onlyComputer}>
           <Segment>
-            <TableList />
+            <StuffList />
           </Segment>
         </Responsive>
       </div>
