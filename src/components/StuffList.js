@@ -11,7 +11,7 @@ class StuffList extends React.Component {
   };
   componentWillMount() {
     // HERE WE ARE TRIGGERING THE ACTION
-    this.props.stuffActions.fetchStuff("papel");
+    this.props.stuffActions.fetchStuff("");
   }
 
   updateInputValue = evt => {
@@ -62,19 +62,23 @@ class StuffList extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.props.stuff[0].map((item, index) => {
-              return (
-                <Table.Row key={index}>
-                  <Table.Cell>{item.ItemAttributes.Brand}</Table.Cell>
-                  <Table.Cell>{item.ItemAttributes.Title}</Table.Cell>
-                  <Table.Cell>
-                    {item.ItemAttributes.ListPrice !== undefined
-                      ? item.ItemAttributes.ListPrice.FormattedPrice
-                      : "No Price available"}
-                  </Table.Cell>
-                </Table.Row>
-              );
-            })}
+            {this.props.stuff[0] !== undefined ? (
+              this.props.stuff[0].map((item, index) => {
+                return (
+                  <Table.Row key={index}>
+                    <Table.Cell>{item.ItemAttributes.Brand}</Table.Cell>
+                    <Table.Cell>{item.ItemAttributes.Title}</Table.Cell>
+                    <Table.Cell>
+                      {item.ItemAttributes.ListPrice !== undefined
+                        ? item.ItemAttributes.ListPrice.FormattedPrice
+                        : "No Price available"}
+                    </Table.Cell>
+                  </Table.Row>
+                );
+              })
+            ) : (
+              <div className="">No Data</div>
+            )}
           </Table.Body>
         </Table>
       </div>
@@ -87,7 +91,7 @@ class StuffList extends React.Component {
         {this.props.stuff.length > 0 ? (
           this.renderData()
         ) : (
-          <div className="">No Data</div>
+          <div className="">No Data, check spelling.</div>
         )}
       </div>
     );
